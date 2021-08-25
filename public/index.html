@@ -181,7 +181,7 @@
     
     <form>
         <input type="text" value="https://www.youtube.com/watch?v=aqz-KE-bpKQ" size="80" id="txt_url">
-        <input type="button" id="btn_fetch" value="Fetch">
+        <input type="button" id="btn_fetch" value="تنزيل">
     </form>
     
     <video width="250" height="250" controls>
@@ -222,7 +222,7 @@
                         return;
                     }
     
-                    var stream_url = 'video.mp4?url=' + encodeURIComponent(first);
+                    var stream_url = 'stream.php?url=' + encodeURIComponent(first);
     
                     var video = $("video");
                     video.attr('src', stream_url);
