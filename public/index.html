@@ -1,73 +1,329 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>youtube-downloader</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-</head>
-<body>
+<!DOCTYPE html>    
+  <html dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>    
+  <head>    
+  <title>YouTube Downloader - Download Youtube videos for free!</title>    
+  <meta content='index, follow' name='robots'/>    
+  <meta content='2 days' name='revisit-after'/>    
+  <meta content='English' name='language'/>    
+  <meta content='INDIA' name='geo.country'/>    
+  <meta content='BIHAR' name='geo.placename'/>    
+  <meta content='global' name='distribution'/>    
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>    
+  <meta content='true' name='MSSmartTagsPreventParsing'/>    
+  <meta content='general' name='rating'/>        
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans"> 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js "></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>    
+  <style id='page-skin-1' type='text/css'><!--    
+  /*    
+  -----------------------------------------------------------------------------------    
+	Template Disign By omar sayed
+  ----------------------------------------------------------------------------------- */    
+  #navbar-iframe {    
+  height:0px;    
+  visibility:hidden;    
+  display: none !important;    
+  }    
+  html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {    
+  margin: 0;    
+  padding: 0;    
+  border: 0;    
+  font-size: 100%;    
+  font: inherit;    
+  vertical-align: baseline;    
+  }    
+  article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {    
+  display: block;    
+  }    
+  html {    
+  background:#eeeeee;    
+  text-align:center;    
+  line-height: 1;    
+  font-family: Georgia;    
+  }    
+  ol, ul {    
+  list-style: none;    
+  }    
+  blockquote, q {    
+  quotes: none;    
+  }    
+  blockquote:before, blockquote:after, q:before, q:after {    
+  content: '';    
+  content: none;    
+  }    
+  table {    
+  border-collapse: collapse;    
+  border-spacing: 0;    
+  }    
+  *:focus {    
+  outline: 0;    
+  }    
+  #hd {    
+  width:100%;    
+  height:390px;    
+  background-image: linear-gradient(to right, #0970eb, #008fef, #00a4d8, #00b3b6, #52be9a);    
+  margin:0 0 50px 0;    
+  -moz-box-shadow: inset 0 -4px 10px -5px #000;    
+  -webkit-box-shadow: inset 0 -4px 10px -5px #000;    
+  box-shadow: inset 0 -4px 10px -5px #000;    
+  }    
+  h1 {    
+  font-size:24px;    
+  font-weight:bold;    
+  color:#fff;    
+  text-shadow: 1px 1px 1px #666666;    
+  }    
+  #hd p{    
+  max-width:70%;    
+  margin:20px auto;    
+  padding:10px;    
+  background:#2A78C3;    
+  border: dashed #00C0C7 2px;    
+  font-family:arial;    
+  font-size:17px;    
+  font-weight:bold;    
+  line-height: 1.4;    
+  color:#FFFFFF;    
+  }    
+  #hd p span{    
+  color:#FFFF00;    
+  }    
+  input[type="text"]{    
+  width:400px;    
+  height:70px;    
+  padding:0 0 0 10px;    
+  border: dashed #1a1a1a 2px;    
+  font-family: Georgia;    
+  }    
+  input[type="submit"]{    
+  height:72px;    
+  background: #66bdff;    
+  background-image: -webkit-linear-gradient(top, #66bdff, #0d9eff);    
+  background-image: -moz-linear-gradient(top, #66bdff, #0d9eff);    
+  background-image: -ms-linear-gradient(top, #66bdff, #0d9eff);    
+  background-image: -o-linear-gradient(top, #66bdff, #0d9eff);    
+  background-image: linear-gradient(to bottom, #66bdff, #0d9eff);    
+  border: dashed #1a1a1a 1px;    
+  -webkit-border-radius: 0;    
+  -moz-border-radius: 0;    
+  border-radius: 0px;    
+  margin:0 0 0 -2px;    
+  cursor: pointer;    
+  font-family: Georgia;    
+  text-decoration: none;    
+  color: #fff;    
+  }    
+  input[type="submit"]:hover {    
+  background: #f72525;    
+  background-image: -webkit-linear-gradient(top, #f72525, #b52222);    
+  background-image: -moz-linear-gradient(top, #f72525, #b52222);    
+  background-image: -ms-linear-gradient(top, #f72525, #b52222);    
+  background-image: -o-linear-gradient(top, #f72525, #b52222);    
+  background-image: linear-gradient(to bottom, #f72525, #b52222);    
+  }    
+  h2{    
+  margin:20px;    
+  font-size:14px;    
+  color:rgb(0, 183, 255);    
 
-<h1>YouTube Downloader</h1>
+  }    
+  h3{    
+  color:#A9A6A6;    
+  margin:10px auto;    
+  }    
+  #hidden_div img{    
+  margin:5px;    
+  border: solid #C8312B 3px;    
+  }    
+  #sorry{    
+  width:200px;    
+  height:3opx;    
+  margin:10px auto;    
+  padding:10px;    
+  background:#BA2020;    
+  border: dashed #7E1313 2px;    
+  color:#fff;    
+  }    
+  #iam{    
+  margin:50px auto;    
+  color:#1a1a1a;    
+  }    
+  .imgSizing{
+		max-height:80%;
+		max-width:80%;
+	}
+	.adspacebytechnicalarp{padding:2em;box-shadow:0 5px 15px rgba(0,0,0,.16);border-radius:5px;margin-top:1em;background:#fff;text-align:left}
+ -->    
+	.adspacebytechnicalarp{padding:2em;box-shadow:0 5px 15px rgba(0,0,0,.16);border-radius:5px;margin-top:1em;background:#fff;text-align:left}
+  </style>    
+	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js' type='text/javascript'></script>
+  </head>    
+  <body class=" text-center">    
+    <h1>YouTube Downloader</h1>
 
-<p>
-    <a href="https://github.com/Athlon1600/youtube-downloader">https://github.com/Athlon1600/youtube-downloader</a>
-</p>
-
-<form>
-    <input type="text" value="https://www.youtube.com/watch?v=aqz-KE-bpKQ" size="80" id="txt_url">
-    <input type="button" id="btn_fetch" value="Fetch">
-</form>
-
-<video width="800" height="600" controls>
-    <source src="" type="video/mp4"/>
-    <em>Sorry, your browser doesn't support HTML5 video.</em>
-</video>
-
-
-<script>
-    $(function () {
-
-        $("#btn_fetch").click(function () {
-
-            var url = $("#txt_url").val();
-
-            var oThis = $(this);
-            oThis.attr('disabled', true);
-
-            $.get('video_info.php', {url: url}, function (data) {
-
-                console.log(data);
-
-                oThis.attr('disabled', false);
-
-                var links = data['links'];
-                var error = data['error'];
-
-                if (error) {
-                    alert('Error: ' + error);
-                    return;
-                }
-
-                // first link with video
-                var first = links[0];
-
-                if (typeof first === 'undefined') {
-                    alert('No video found!');
-                    return;
-                }
-
-                var stream_url = 'stream.php?url=' + encodeURIComponent(first);
-
-                var video = $("video");
-                video.attr('src', stream_url);
-                video[0].load();
+    <p>
+        <a href="https://github.com/Athlon1600/youtube-downloader">https://github.com/Athlon1600/youtube-downloader</a>
+    </p>
+    
+    <form>
+        <input type="text" value="https://www.youtube.com/watch?v=aqz-KE-bpKQ" size="80" id="txt_url">
+        <input type="button" id="btn_fetch" value="Fetch">
+    </form>
+    
+    <video width="800" height="600" controls>
+        <source src="" type="video/mp4"/>
+        <em>Sorry, your browser doesn't support HTML5 video.</em>
+    </video>
+    
+    
+    <script>
+        $(function () {
+    
+            $("#btn_fetch").click(function () {
+    
+                var url = $("#txt_url").val();
+    
+                var oThis = $(this);
+                oThis.attr('disabled', true);
+    
+                $.get('video_info.php', {url: url}, function (data) {
+    
+                    console.log(data);
+    
+                    oThis.attr('disabled', false);
+    
+                    var links = data['links'];
+                    var error = data['error'];
+    
+                    if (error) {
+                        alert('Error: ' + error);
+                        return;
+                    }
+    
+                    // first link with video
+                    var first = links[0];
+    
+                    if (typeof first === 'undefined') {
+                        alert('No video found!');
+                        return;
+                    }
+    
+                    var stream_url = 'stream.php?url=' + encodeURIComponent(first);
+    
+                    var video = $("video");
+                    video.attr('src', stream_url);
+                    video[0].load();
+                });
+    
             });
-
+    
         });
+    </script>
 
-    });
-</script>
+  <div id='hd'>    
+  <img alt='youtube video downloader' src='https://j.top4top.io/p_2062unchg1.png' title='بيستر يوتيوب فيديوز'/>    
+  <h1>بيستر يوتيوب فيديوز</h1>    
+  </div>    
 
-</body>
-</html>
+   
+   </br>    
+    <h2
+    > لتنزيل مقطع صوتي فقط mp3 اختر</h1>    
+    <h2  color: blue;
+    > لتنزيل الفيديو mp4 اختر</h1>    
 
+  <iframe src="https://mp3downy.com/mp3-converter?apikey=89eb7d92-3622-45d7-86a0-15adb53d61f1&color=17a2b8&bg=ffffff"  style="width:100%;min-height:250px;height:auto;" ></iframe>   
+  <div id='hidden_div' style='display:none'>    
+  <div id='thumbnails'>    
+  </div>    
+  </div>    
+<!-- CONTACT US -->
+   
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- / CONTACT US -->
+
+    <!-- PRIVACY -->
+    <div id="privacy" class="modal fade technicalarpModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div visibility="hidden" class="modal-header bg-warning">
+                    <h4 class="modal-title">PRIVACY POLICY</h4>
+                    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>PRIVACY POLICY Text Write Down</p>
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-default" type="button">close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- / PRIVACY -->
+
+    <!-- ABOUT US -->
+    <div id="aboutus" class="modal fade technicalarpModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h4 class="modal-title">ABOUT US</h4>
+                    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">&times;</button>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-default" type="button">close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- / ABOUT US -->
+    
+    <!-- TERMOFUSE -->
+    <div id="termsofuse" class="modal fade technicalarpModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header alert-warning">
+                    <h4 class="modal-title">TERM OF USE</h4>
+                    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">&times;</button>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-default" type="button">close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- / TERMOFUSE -->
+
+<footer  style="margin-top:30px; margin-bottom:20px;">
+
+
+
+	<div class='container text-center'>
+			<b>
+			</br>
+			</br>
+		<!-- Edited by Technical Arp Team Visit: www.technicalarp.com-->
+		</div>
+	</div>
+</footer>
+
+
+  </body>    
+  </html>
